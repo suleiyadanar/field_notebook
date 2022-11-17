@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Form.css";
 
-export const Form = ({ display, setEntry }) => {
+export const Form = ({ display, setEntry}) => {
   const original = {
     common_name: "\n",
     sci_name: "\n",
@@ -10,10 +10,9 @@ export const Form = ({ display, setEntry }) => {
     bark: "\n",
     notes: "\n",
   }
-  const [data, setData] = useState(
-   original
-  );
-
+    const [data, setData] = useState(
+    original
+   );
   const handle = (e) => {
     const newdata = { ...data };
     console.log(e.target.id)
@@ -46,8 +45,10 @@ export const Form = ({ display, setEntry }) => {
       })
       .then((message) => {
         console.log(message)
+        console.log(original)
         getEntries()
-
+        setData(original)
+        console.log(data)
       });
   };
 
@@ -60,8 +61,8 @@ export const Form = ({ display, setEntry }) => {
   }
   return (
     <div className="formDiv">
-      { display ? <form onSubmit={handleFormSubmit} className="formItem">
-      <h3>New Tree Data Entry</h3>
+      <form onSubmit={handleFormSubmit} className="formItem">
+      <h3> Tree Data Entry</h3>
       <label className="formInput">
         Common Name:{" "}
         <input
@@ -69,6 +70,7 @@ export const Form = ({ display, setEntry }) => {
           type="text"
           id="common_name"
           name="common_name"
+          value={data.common_name}
           placeholder="Common Name"
           required
         />
@@ -79,6 +81,7 @@ export const Form = ({ display, setEntry }) => {
           onChange={(e) => handle(e)}
           type="text"
           id="sci_name"
+          value={data.sci_name}
           name="sci_name"
           placeholder="Scientific Name"
           required
@@ -90,6 +93,7 @@ export const Form = ({ display, setEntry }) => {
           onChange={(e) => handle(e)}
           type="text"
           id="family_name"
+          value={data.family_name}
           name="family_name"
           placeholder="Family Name"
           required
@@ -97,7 +101,7 @@ export const Form = ({ display, setEntry }) => {
       </label>
       <label className="formInput">
         Leaf Type:
-        <select id="leaf_type" name="leaf_type" onChange={(e) => handle(e)}>
+        <select id="leaf_type" name="leaf_type" onChange={(e) => handle(e)} value={data.leaf_type}>
           <option value="needle_scales">Needle/Scales</option>
           <option value="simple_alternate">Simple Alternate</option>
           <option value="simple_opposite">Simple Opposite</option>
@@ -110,6 +114,7 @@ export const Form = ({ display, setEntry }) => {
         <input
           onChange={(e) => handle(e)}
           type="text"
+          value={data.bark}
           id="bark"
           name="bark"
           placeholder="Bark Details"
@@ -120,13 +125,14 @@ export const Form = ({ display, setEntry }) => {
         <textarea
           onChange={(e) => handle(e)}
           type="text"
+          value={data.notes}
           id="notes"
           name="notes"
           placeholder="Notes"
         />
       </label>
       <button> Add Entry </button>
-    </form> : ""}
+    </form>
 
     </div>
   );

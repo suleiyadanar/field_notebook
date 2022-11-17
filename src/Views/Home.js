@@ -6,8 +6,11 @@ import { NavBar } from "../Components/Entry/NavBar"
 
 export const Home = () => {
     const [ entry, setEntry] = useState([])
-
     const [ show , setShow ] = useState(false)
+
+
+
+
     useEffect(()=>{
         fetch('/api').then(response => {
             if(response.ok){
@@ -29,8 +32,9 @@ export const Home = () => {
         <div style={{display:"flex"}}> <button onClick={toggle}> {show ? "x Close" : "+Add Entry" }</button>
         <h2>My Tree Notes</h2>
         </div>
-
-        <Form setEntry={setEntry} display={show}/>
+        {show ?
+        <Form setEntry={setEntry}/>
+        :""}
         <Entry entryList = {entry} />
     </div>
   )
