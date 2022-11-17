@@ -47,7 +47,7 @@ export const Form = ({ display, setEntry }) => {
       .then((message) => {
         console.log(message)
         getEntries()
-
+        setData(original)
       });
   };
 
@@ -69,6 +69,7 @@ export const Form = ({ display, setEntry }) => {
           type="text"
           id="common_name"
           name="common_name"
+          value= {data.common_name}
           placeholder="Common Name"
           required
         />
@@ -79,6 +80,7 @@ export const Form = ({ display, setEntry }) => {
           onChange={(e) => handle(e)}
           type="text"
           id="sci_name"
+          value= {data.sci_name}
           name="sci_name"
           placeholder="Scientific Name"
           required
@@ -90,6 +92,7 @@ export const Form = ({ display, setEntry }) => {
           onChange={(e) => handle(e)}
           type="text"
           id="family_name"
+          value= {data.family_name}
           name="family_name"
           placeholder="Family Name"
           required
@@ -97,7 +100,7 @@ export const Form = ({ display, setEntry }) => {
       </label>
       <label className="formInput">
         Leaf Type:
-        <select id="leaf_type" name="leaf_type" onChange={(e) => handle(e)}>
+        <select id="leaf_type" name="leaf_type" onChange={(e) => handle(e)} value= {data.leaf_type}>
           <option value="needle_scales">Needle/Scales</option>
           <option value="simple_alternate">Simple Alternate</option>
           <option value="simple_opposite">Simple Opposite</option>
@@ -109,6 +112,7 @@ export const Form = ({ display, setEntry }) => {
         Bark Details:{" "}
         <input
           onChange={(e) => handle(e)}
+          value={data.bark}
           type="text"
           id="bark"
           name="bark"
@@ -119,6 +123,7 @@ export const Form = ({ display, setEntry }) => {
         Notes:{" "}
         <textarea
           onChange={(e) => handle(e)}
+          value= {data.notes}
           type="text"
           id="notes"
           name="notes"
