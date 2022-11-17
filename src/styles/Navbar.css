@@ -1,0 +1,12 @@
+.nav{
+    background-color: rgb(193, 225, 193);
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0px;
+    height:5vh;
+}
+h3{
+    text-align: left;
+    font-family: 'Merriweather', serif;
+}

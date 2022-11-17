@@ -1,0 +1,40 @@
+.formDiv{
+    display: flex;
+    margin:1.5vh;
+    background-color: rgb(248,235,235);
+    height:fit-content;
+}
+.formItem{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+.formInput{
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+
+input,
+select,
+textarea{
+    width:60vw;
+    border:None;
+    height: 25px;
+}
+
+textarea{
+    height: 15vh;
+}
+
+button{
+    border: 0;
+    padding:10px;
+    margin:15px;
+    border-radius: 5px;
+    background-color: rgb(193, 225, 193);
+    cursor: pointer;
+}
